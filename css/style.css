@@ -1,0 +1,63 @@
+
+.nav-color{
+    background:rgb(32, 30, 30) !important;
+}
+
+.nav-item{
+    margin: 2px;
+    padding: 1px;
+}
+.navbar-item.active{
+    /* background-image: linear-gradient(to top, black, #FFCA47, black) !important; */
+    background-image: linear-gradient(to top left, #FFCA47, #F7B842, #EFA63D, #E89438, #E08233, #D8702E, #D05E29) !important;
+    color: white !important;
+}
+.navbar-item:hover, .nav-about:hover{
+    background-color: rgba(54, 54, 54, 0.5) !important;
+}
+
+.nav-link.active{
+    background-color: transparent !important;
+}
+
+.dropdown-item.active{
+    background-color: transparent !important;
+    color: #F7B842 !important;
+}
+.dropdown-item:focus {
+    background-color: transparent !important;
+}
+.dropdown-menu-dark{
+    background:rgb(45, 42, 42) !important;
+}
+
+.body-bg{
+    background-color: rgb(103, 103, 103);
+}
+
+.nav-about{
+    text-transform: none !important;
+    border: #DF116A !important;
+    border-style: solid !important;
+    border-width: 2px !important;
+    /* color: linear-gradient(to bottom, #DF116A, #CC1268, #B91266, #A71365, #941463, #811461, #6E155F) !important; */
+}
+.nav-about.active{
+    background-image: linear-gradient(to bottom, #DF116A, #CC1268, #B91266, #A71365, #941463, #811461, #6E155F) !important;
+    color: white !important;
+    border-width: 0px !important;
+}
+/* .nav-about:hover{
+    background-image: linear-gradient(to bottom, transparent, #A71365, #941463, transparent) !important;
+    color: black !important;
+} */
+
+
+div[id="navbar-items-label"] a{
+    margin: auto;
+    padding-left: 5%;
+}
+
+div[id="navbar-items-label"] form{
+    margin-top: 5%;
+}
