@@ -8,13 +8,13 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
         <link href="/css/style.css" rel="stylesheet" >
     </head>
-    <body class="w-100" data-bs-spy="scroll" data-bs-target="#nav-bar" data-offset="50">
-
     
-        <div class="w-100">
+    <body class="w-100 h-100" data-bs-spy="scroll" data-bs-target="#nav-bar" data-offset="50">
+    
+        <div class="w-100" id="navbarID">
             <nav class="navbar navbar-expand-md p-3 h-auto w-auto nav-color sticky-top" id="nav-bar">
                 <div class="container-fluid">
-                    <div class="navbar-brand text-white offcanvas-title">DVASER</div>
+                    <a href="index.html" class="navbar-brand text-white offcanvas-title">DVASER</a>
                     
                     <button class="navbar-dark navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbar-items" aria-controls="navbar-items" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -52,21 +52,23 @@
                 </div>
             </nav>
         </div>
-        
-        <div class="position-fixed fixed-bottom" id="navbar-fixed">
-            <div class="float-end m-5 w-20">
-                
-            </div>
-        </div>
 
         <article class="w-100 h-100 text-white" id="article">
             <div>
                 <div class="p-4 body-bg">
                     
-                    <div id="whoamii">
-                        <h2 class="fw-bold font-monospace">Who Am I?</h2>
+                    <br>
+
+                    <div id="content">
+                        <h2 class="fw-bold font-monospace fst-italic display-5">Doğukan Vatansever</h2>
                         <div class="card shadow w-100">
                             
+                            <div class="float-end fixed-bottom row mb-4 d-none" id="upIcon">
+                                <div class="col-10 mx-auto"></div>
+                                <a href="#navbarID" class="col-1 me-5">
+                                    <img src="/icon/up.png" alt="up" style="width: 50px; height: auto;">
+                                </a>
+                            </div>
 
                             <div class="row">
                                 
@@ -80,44 +82,193 @@
 
                                             <br>
 
-                                            <div id="me">
-                                                <h3 class="bg-dark text-center text-white rounded rounded-5 d-inline px-5">Me?</h3>
+                                            <div id="whoami">
+                                                <h3 class="bg-dark text-center text-white d-inline px-5">WHO AM I ?</h3>
                                                 <br><br>
-                                                <p class="ps-4">
-                                                    I'm a Doğukan Vatansever and computer engineering student. Also, I was born in Turkey in 2001.
-                                                </p>
+                                                <div class="row ps-sm-4">
+                                                    <img src="/img/me.jpg" alt="Doğukan Vatansever" class="col-sm-3">
+                                                    <p class="ps-4 col-sm-9 pt-3">
+                                                        Hi, I am Doğukan Vatansever.<br>
+                                                        I'm computer engineering student in Turkey.<br> 
+                                                        Also, I was born in Turkey in 2001.
+                                                    </p>
+                                                </div>
                                             </div>
                                             
                                             <br>
                                             
-                                            <div id="schools">
-                                                <h3 class="bg-dark text-center text-white rounded rounded-5 d-inline px-5">Schools</h3>
+                                            <div id="experience">
+                                                <h3 class="bg-dark text-center text-white d-inline px-5">EXPERIENCE</h3>
                                                 <br><br>
-                                                <ul class="list-group list-group-flush ps-5">
-                                                    <h4 class="fw-semibold">Bursa Uludag University</h4>
-                                                    <li class="list-group-item h6">
-                                                        Uludag Software Community Co-Founder
-                                                        <small class="text-muted fst-italic">(2021)</small>
-                                                    </li>
-                                                    <li class="list-group-item h6">
-                                                        Sema UAV Team Software Developer
-                                                        <small class="text-muted fst-italic">(2021)</small>
-                                                    </li>
-                                                    <li class="list-group-item h6">
-                                                        Google DSC Uludag University Event & Organization Member
-                                                        <small class="text-muted fst-italic">(2021)</small>
-                                                    </li>
-                                                    <br>
-                                                    <h4 class="fw-semibold">High School</h4>
-                                                    <li class="list-group-item h6">
-                                                        Renewable Energy Resources Project Director
-                                                        <small class="text-muted fst-italic">(2016)</small>
-                                                    </li>
-                                                    <li class="list-group-item h6">
-                                                        Journalism Club Presidency
-                                                        <small class="text-muted fst-italic">(2015)</small>
-                                                    </li>
+                                                <ul class="ps-5 row">
+                                                    <small class="text-muted fst-italic col-sm-2 pb-3">2021-2022</small>
+                                                    <div class="col-9 mx-auto">
+                                                        <li class="list-group-item mb-4">
+                                                            <h4 class="fw-semibold">
+                                                                DEPARTMENT OF INFORMATION TECHNOLOGY<br>
+                                                                (INTERN)
+                                                            </h4>
+                                                            <h6 class="fst-italic fw-lighter font-monospace ps-4">
+                                                                Bursa Uludag University
+                                                            </h6>
+                                                        </li>
+                                                        <hr>
+                                                        <li class="list-group-item mb-4">
+                                                            <h4 class="fw-semibold">
+                                                                SEMA UAV TEAM<br>
+                                                                (SOFTWARE DEVELOPER)
+                                                            </h4>
+                                                            <h6 class="fst-italic fw-lighter font-monospace ps-4">
+                                                                TechnoFest Turkey
+                                                            </h6>
+                                                        </li>
+                                                        <hr>
+                                                        <li class="list-group-item mb-4">
+                                                            <h4 class="fw-semibold">
+                                                                ULUDAG SOFTWARE COMMUNITY<br>
+                                                                (VICE PRESIDENT & CO-FOUNDER)
+                                                            </h4>
+                                                            <h6 class="fst-italic fw-lighter font-monospace ps-4">
+                                                                Bursa Uludag University
+                                                            </h6>
+                                                        </li>
+                                                        <hr>
+                                                        <li class="list-group-item mb-4">
+                                                            <h4 class="fw-semibold">
+                                                                GOOGLE DSC ULUDAG UNIVERSITY<br>
+                                                                (EVENT & ORGANIZATION)
+                                                            </h4>
+                                                            <h6 class="fst-italic fw-lighter font-monospace ps-4">
+                                                                Bursa Uludag University
+                                                            </h6>
+                                                        </li>
+                                                    </div>
                                                 </ul>
+                                                <hr>
+                                                <ul class="ps-5 row">
+                                                    <small class="text-muted fst-italic col-sm-2 pb-3">2015-2016</small>
+                                                    <div class="col-9 mx-auto">
+                                                        <li class="list-group-item mb-4">
+                                                            <h4 class="fw-semibold">
+                                                                JOURNALISM CLUB<br>
+                                                                (PRESIDENT)
+                                                            </h4>
+                                                            <h6 class="fst-italic fw-lighter font-monospace ps-4">
+                                                                Bursa Altınsehir Schools
+                                                            </h6>
+                                                        </li>
+                                                    </div>
+                                                </ul>
+                                            </div>
+
+                                            <br>
+
+                                            <div id="skills">
+                                                <h3 class="bg-dark text-center text-white d-inline px-5">SKILLS</h3>
+                                                <br><br>
+
+                                                <div class="ps-5 row py-2">
+                                                    <div class="col-8">
+                                                        <h4 class="fw-normal font-monospace">
+                                                            Python / Django
+                                                        </h4>
+                                                    </div>
+                                                    <div class="col-sm-3 text-muted fst-italic mx-auto me-4">
+                                                        <img src="/icon/star.png" alt="star" style="width: 30px;" class="float-end p-1">
+                                                        <img src="/icon/star.png" alt="star" style="width: 30px;" class="float-end p-1">
+                                                        <img src="/icon/star.png" alt="star" style="width: 30px;" class="float-end p-1">
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class="ps-5 row py-2">
+                                                    <div class="col-8">
+                                                        <h4 class="fw-normal font-monospace">
+                                                            Flutter / Dart
+                                                        </h4>
+                                                    </div>
+                                                    <div class="col-sm-3 text-muted fst-italic mx-auto me-4">
+                                                        <img src="/icon/star.png" alt="star" style="width: 30px;" class="float-end p-1">
+                                                        <img src="/icon/star.png" alt="star" style="width: 30px;" class="float-end p-1">
+                                                        <img src="/icon/star.png" alt="star" style="width: 30px;" class="float-end p-1">
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class="ps-5 row py-2">
+                                                    <div class="col-8">
+                                                        <h4 class="fw-normal font-monospace">
+                                                            HTML5 / CSS3 / BootStrap5
+                                                        </h4>
+                                                    </div>
+                                                    <div class="col-sm-3 text-muted fst-italic mx-auto me-4">
+                                                        <img src="/icon/star.png" alt="star" style="width: 30px;" class="float-end p-1">
+                                                        <img src="/icon/star.png" alt="star" style="width: 30px;" class="float-end p-1">
+                                                        <img src="/icon/star.png" alt="star" style="width: 30px;" class="float-end p-1">
+                                                        <img src="/icon/star.png" alt="star" style="width: 30px;" class="float-end p-1">
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class="ps-5 row py-2">
+                                                    <div class="col-8">
+                                                        <h4 class="fw-normal font-monospace">
+                                                            C / C# /C++
+                                                        </h4>
+                                                    </div>
+                                                    <div class="col-sm-3 text-muted fst-italic mx-auto me-4">
+                                                        <img src="/icon/star.png" alt="star" style="width: 30px;" class="float-end p-1">
+                                                        <img src="/icon/star.png" alt="star" style="width: 30px;" class="float-end p-1">
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class="ps-5 row py-2">
+                                                    <div class="col-8">
+                                                        <h4 class="fw-normal font-monospace">
+                                                            MSSQL / MongoDB
+                                                        </h4>
+                                                    </div>
+                                                    <div class="col-sm-3 text-muted fst-italic mx-auto me-4">
+                                                        <img src="/icon/star.png" alt="star" style="width: 30px;" class="float-end p-1">
+                                                        <img src="/icon/star.png" alt="star" style="width: 30px;" class="float-end p-1">
+                                                        <img src="/icon/star.png" alt="star" style="width: 30px;" class="float-end p-1">
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class="ps-5 row py-2">
+                                                    <div class="col-8">
+                                                        <h4 class="fw-normal font-monospace">
+                                                            Figma
+                                                        </h4>
+                                                    </div>
+                                                    <div class="col-sm-3 text-muted fst-italic mx-auto me-4">
+                                                        <img src="/icon/star.png" alt="star" style="width: 30px;" class="float-end p-1">
+                                                        <img src="/icon/star.png" alt="star" style="width: 30px;" class="float-end p-1">
+                                                        <img src="/icon/star.png" alt="star" style="width: 30px;" class="float-end p-1">
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class="ps-5 row py-2">
+                                                    <div class="col-8">
+                                                        <h4 class="fw-normal font-monospace">
+                                                            .NET Framework
+                                                        </h4>
+                                                    </div>
+                                                    <div class="col-sm-3 text-muted fst-italic mx-auto me-4">
+                                                        <img src="/icon/star.png" alt="star" style="width: 30px;" class="float-end p-1">
+                                                        <img src="/icon/star.png" alt="star" style="width: 30px;" class="float-end p-1">
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class="ps-5 row py-2">
+                                                    <div class="col-8">
+                                                        <h4 class="fw-normal font-monospace">
+                                                            OpenCV
+                                                        </h4>
+                                                    </div>
+                                                    <div class="col-sm-3 text-muted fst-italic mx-auto me-4">
+                                                        <img src="/icon/star.png" alt="star" style="width: 30px;" class="float-end p-1">
+                                                        <img src="/icon/star.png" alt="star" style="width: 30px;" class="float-end p-1">
+                                                    </div>
+                                                </div>
+
                                             </div>
                                         </div>
                                     </div>
