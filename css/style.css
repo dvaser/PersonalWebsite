@@ -62,3 +62,38 @@ a{
 .bg-opac{
     background-color: rgba(54, 54, 54, 0.2) !important;
 }
+
+.carousel-item h4, .carousel-item h6 a{
+    color: black !important;
+    font-weight: bold !important;
+}
+
+.carousel-item img{
+    background-color: white !important;
+    width: 50% !important;
+    height: 25% !important;
+}
+
+div[id="certificates"] div .col-2 img{
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 140px !important;
+    min-width: 75px !important;
+    opacity: 100 !important;
+}
+
+div[id="certificates"] div .col-2{
+    text-align: left !important;
+    margin: auto !important;
+}
+
+div[id="certificates"] div .col-10{
+    text-align: right !important;
+    margin: auto !important;
+}
+
+div[id="projects"] .list-group-item h6 img{
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 50px !important;
+}
