@@ -1,0 +1,37 @@
+{% load static %}
+
+<section class="content m-auto row text-white" style="width: 80vw; height: 80vh;" id="contact">
+
+    <div id="contact-content" class="col text-white effect-contact text-center" style="height: 60vh; display: flex; align-items: center;">
+        <h3>
+            <div id="textContainer"
+                style="
+                    font-size: 60px;
+                    font-family: 'Courier New', Courier, monospace;
+                    font-weight: 700;
+                    font-style: normal;
+                    color: white;
+                ">
+            </div>
+        </h3>
+        <div class="card-wrapper">
+            {% for contact in links %}
+                <div class="card-box effect-contact m-2">
+                    <div class="card-body">
+                        <a href="{{contact.url}}" target="blank">
+                            <img src="{{contact.icon}}" alt="url" class="icon p-1" style="width: 5vw;">
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="video">
+            <video muted autoplay loop>
+                <source src="{% static 'video/hack.mp4' %}"/>
+            </video>
+        </div>
+    </div>
+
+</section>
+
+

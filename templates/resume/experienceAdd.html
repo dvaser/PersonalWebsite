@@ -1,0 +1,41 @@
+{% extends 'add.html' %}
+{% load static %}
+
+{% block form %}
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <!-- Experience Name -->
+    <label for="experience_name">Experience Name</label>
+    <input type="text" name="experience_name" id="experience_name" maxlength="100" placeholder="Experience Name">
+    <br>
+
+    <!-- Sub Description -->
+    <label for="sub_description">Sub Description</label>
+    <input type="text" name="sub_description" id="sub_description" maxlength="200" placeholder="Sub Description">
+    <br>
+
+    <!-- Start Date -->
+    <label for="start_date">Start Date</label>
+    <input type="date" name="start_date" id="start_date" placeholder="Start Date">
+    <br>
+
+    <!-- End Date -->
+    <label for="end_date">End Date</label>
+    <input type="date" name="end_date" id="end_date" placeholder="End Date">
+    <br>
+
+    <!-- Location -->
+    <label for="location">Location</label>
+    <input type="text" name="location" id="location" maxlength="100" placeholder="Location">
+    <br>
+
+    <!-- Experience Image -->
+    <label for="experience_image">Experience Image</label>
+    <input type="file" name="experience_image" id="experience_image" placeholder="Experience Image">
+    <br>
+
+    <!-- Submit Button -->
+    <input type="submit" value="Submit">
+</form>
+{% endblock %}

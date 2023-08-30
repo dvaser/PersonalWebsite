@@ -1,0 +1,33 @@
+{% load static %}
+
+<section class="content m-auto text-white d-flex justify-content-center" style="width: 80vw; height: 80vh;" id="certificate">
+    <div class="d-flex" style="width: 80vw;" id="certificate-box">
+        <div class="carousel opacity-75 col-sm-8" id="carouselId">
+            <div class="carousel-inner effect-certificate">
+                {% for certificate in certificates %}
+                    <div class="m-auto carousel-item {% if forloop.first %}active{% endif %}" style="width: 40vw; height: 70vh;">
+                        <object data="{{ certificate.certificate_pdf }}" type="application/pdf" width="100%" height="100%"></object>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>        
+        <div id="cards-certificate" class="d-flex flex-wrap col-sm-3 overflow-y-auto effect-certificate" style="height: 75vh;">
+            {% for certificate in certificates %}
+                <div class="card m-2 p-2 effect-certificate" style="width: 25vw; height: max-content; display: flex; align-items: center; cursor: pointer;">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">{{ certificate.certificate_name|title }}</h5>
+                        <p class="card-text w-100">
+                            <h6 class="float-start fst-italic" style="font-size: small;">{{ certificate.issued_by|title }}</h6>
+                            <br>
+                            <p class="float-end fst-italic" style="font-size: small;">{{ certificate.acquisition_date }}</p>
+                        </p>
+                    </div>
+                    <div class="text-center">
+                        <button data-bs-target="#carouselId" data-bs-slide-to="{{ forloop.counter0 }}" class="me-1 btn btn-dark bg-lights text-black" style="font-weight: 600;">Show</button>
+                        <a href="{{ certificate.certificate_link }}" class="ms-1 btn btn-dark bg-darks" style="font-weight: 600;" target="_blank">Go Certificate</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

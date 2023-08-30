@@ -1,0 +1,52 @@
+{% load static %}
+
+<section class="content m-auto" style="width: 80vw; height: 80vh;" id="aboutme">
+    
+    <div class="info-title" style="width: 50vw;">
+        <div class="info-title-box text-white" style="font-size: 80px; font-weight: 900;">
+            <div class="m-2 effect-aboutme">
+                <span class="letter-animation" style="color: #FFB70F">D</span>OĞUKAN
+            </div>
+            <div class="m-2 effect-aboutme">
+                <span class="letter-animation" style="color: #FFB70F">VA</span>TAN<span class="letter-animation" style="color: #cba115">SE</span>VER
+            </div>
+        </div>
+    
+        <div class="info-subtitle-box effect-aboutme">
+            <p class="text-white p-4">
+                I'm a computer engineer in Turkey. This site is my portfolio. 
+            </p>
+        </div>
+    </div>
+    
+    <div style="width: 25vw;" id="mePicture">
+        <div class="row">
+            <div class="col-6"></div>
+            <div class="col-6 mt-5" style="height: 40vh; background-color: #FFB70F; opacity: 50%;"></div>
+        </div>
+    </div>
+
+    <div id="cards-experience" class="col-3 text-center m-auto my-3 effect-aboutme overflow-y-auto d-flex flex-wrap" style="width: 25vw; height: 75vh; justify-content: center;">
+        {% for experience in experiencies %}
+            <div class="card m-2 effect-aboutme shadow" style="width: 20vw;">
+                <div class="card-body row ">
+                    <div class="col-2" style="justify-content: start;">
+                        <img src="{{ experience.experience_image }}" alt="school" style="width: 3.5vw; height: 3.5vw;">
+                    </div>
+                    <div class="col-9" style="justify-content: end;">
+                        <h5 class="card-title text-center" style="font-size: medium;">{{ experience.experience_name|title }}</h5>
+                        <div class="card-text mx-4">
+                            <h6 class="text-center fst-italic" style="font-size: small;">({{ experience.sub_description|title }})</h6>
+                            <p class="fst-italic" style="font-size: small;">{{ experience.location }}</p>
+                            {% if experience.start_date|date:'Y' == experience.end_date|date:'Y' %}
+                                <p class="fst-italic m-2" style="font-size: small">({{ experience.end_date|date:'Y' }})</p>
+                            {% else %}
+                                <p class="fst-italic m-2" style="font-size: small">({{ experience.start_date|date:'Y' }} - {{ experience.end_date|date:'Y' }})</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</section>

@@ -1,0 +1,636 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block css_files %}
+    <link href="{% static 'css/resume.css' %}" rel="stylesheet">
+    <style>
+
+        /* Responsive Tasarım */
+        @media (max-width: 768px) {
+            #aboutme{
+                display: flex !important;
+                flex-wrap: wrap !important;
+            }
+
+            #aboutme .info-title{
+                width: 50vw !important;
+                max-height: 40vh !important;
+            }
+            #aboutme .info-title-box{
+                font-size: 40px !important; 
+                font-weight: 500 !important;
+                height: 20vh !important;
+                overflow: visible !important;
+            }
+            #aboutme .info-subtitle-box{
+                font-size: 15px !important; 
+                font-weight: 400 !important;
+                height: 20vh !important;
+            }
+            #aboutme #mePicture{
+                width: 30vw !important;
+                max-height: 40vh !important;
+            }
+
+            #aboutme #cards-experience{
+                margin-top: 2px !important;
+                width: 80vw !important;
+                height: 50vh !important;
+            }
+
+            #aboutme #cards-experience .card{
+                width: 80vw !important;
+                height: auto !important;
+            }
+            #aboutme #cards-experience .card img{
+                width: 7vh !important;
+                height: 7vh !important;
+            }
+
+            #education #education-box{
+                display: flex !important; 
+                flex-wrap: wrap !important;
+                align-items: center !important; 
+                justify-content: center !important;
+            }
+
+            #education #education-box .card{
+                width: 80vw !important;
+                height: auto !important;
+                display: flex !important; 
+                align-items: normal !important;
+            }
+
+            #education #education-box .card img{
+                height: 7vh !important;
+                width: 7vh !important;
+            }
+
+            #project #video-project{
+                height: 20vh !important;
+                margin-bottom: 2vh;
+            }
+
+            #project .video{
+                width: 50vw !important;
+                height: auto !important;
+            }
+
+            #project #cards-project{
+                height: 58vh !important;
+            }
+
+            #project .card{
+                width: 80vw !important;
+                height: auto !important;
+            }
+
+            #certificate #certificate-box{
+                display: block !important;
+            }
+
+            #certificate #carouselId{
+                height: 40vh !important;
+                margin-bottom: 2vh;
+            }
+
+            #certificate .carousel-inner{
+                height: auto !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+            }
+
+            #certificate .carousel-inner .carousel-item{
+                width: 80vw !important;
+                max-height: 40vh !important;
+            }
+
+            #certificate #cards-certificate{
+                height: 38vh !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+            }
+
+            #certificate .card{
+                width: 60vw !important;
+                height: auto !important;
+            }
+
+            #contact #contact-content .card-box img{
+                width: 8vw !important;
+                height: auto !important;
+            }
+        }
+
+        #project .video {
+            width: 100%;
+            height: 100%;
+            z-index: -999;
+            background: black;
+        }
+        #project .video video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+        }
+
+        #contact-content {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 70vh;
+            margin: 5rem 0;
+        }
+        #contact-content h3 {
+            font-size: 4rem;
+        }
+        #contact-content h3 span {
+            color: #FFB70F;
+        }
+        #contact-content .card-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 4rem;
+        }
+        #contact-content .card-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle, white, gray, #FFB70F, black);
+            border-radius: 100%;
+            margin: 2rem;
+            box-shadow: 1px 1px 1px -1px gray;
+            color: black;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        #contact-content .card-text {
+            font-size: 1.2rem;
+        }
+        #contact-content .card-box:hover {
+            transform: scale(1.1);
+        }
+        #contact-content .icon {
+            font-size: 3rem;
+            margin: 2rem;
+        }
+        #contact-content .video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -999;
+            background: black;
+        }
+        #contact-content .video video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+        }
+
+        .card{
+            background-color: #383838;
+            color: white !important;
+        }
+
+        .card img{
+            background-color: white;
+            border-radius: 100%;
+        }
+
+        #project-card .card-body{
+            position: absolute; 
+            bottom: 0; 
+            background: rgb(0, 0, 0);
+            background: rgba(0, 0, 0, 0.8); /* Black see-through */ 
+            transition: .5s ease;
+            opacity:0;
+            color: white;
+            font-size: 15px;
+            text-align: center;
+            font-weight: 700;
+            width: 100%;
+            height: 100%;
+        }
+
+        #project-card:hover .card-body{
+            opacity: 1;
+            width: 100%;
+            height: 100%;
+        }
+
+        #project-card:hover .card-head{
+            filter: blur(2px);
+            width: 100%;
+            height: 100%;
+        }
+
+        .bg-darks{
+            background-color: #262626 !important;
+        }
+
+        .bg-lights{
+            background-color: #FFB70F !important;
+        }
+
+        .content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden !important; /* Metni kutunun içinde tutmak için ekledik */
+        }
+
+        .effect-aboutme {
+            opacity: 0; /* Başlangıçta görünmez yapalım */
+            transform: translateX(100%); /* Sağa kaydırılmış durumda olsun */
+            transition: opacity 0.5s, transform 0.5s; /* Geçişler için süre belirleyelim */
+        }
+        
+        .effect-education{
+            opacity: 0; /* Başlangıçta görünmez yapalım */
+            transform: scale(0); /* Küçük olarak başlat */
+            transition: opacity 0.5s, transform 0.5s;
+        }
+
+        .effect-project{
+            opacity: 0; /* Başlangıçta görünmez yapalım */
+            transform: scale(0); /* Küçük olarak başlat */
+            transition: opacity 0.5s, transform 0.5s;
+        }
+
+        .effect-certificate{
+            opacity: 0; /* Başlangıçta görünmez yapalım */
+            transform: scale(0); /* Küçük olarak başlat */
+            transition: opacity 0.5s, transform 0.5s;
+        }
+
+        .effect-contact{
+            opacity: 0; /* Başlangıçta görünmez yapalım */
+            transform: translateY(100%); /* Asagida olarak başlat */
+            transition: opacity 0.5s, transform 0.5s;
+        }
+
+        /* Animasyonu tetiklemek için bir sınıf ekleyeceğiz */
+        .animate-left {
+            opacity: 1; /* Görünürlüğü geri getir */
+            transform: translateX(0); /* Yatayda kaydırılmamış pozisyona getir */
+        }
+
+        .animate-big {
+            opacity: 1; /* Görünürlüğü geri getir */
+            transform: scale(1); /* Normal boyuta getir */
+        }
+
+        .animate-up {
+            opacity: 1; /* Görünürlüğü geri getir */
+            transform: translateY(0); /* Dikeyde kaydırılmamış pozisyona getir */
+        }
+
+        #resume{
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+        }
+
+        #resume > nav{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+        }
+
+        #scroll-menu{
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+        }
+
+        #scroll-menu section{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+        }
+
+        body{
+            padding-top: 5%;
+            padding-left: 10%;
+            padding-right: 10%;
+        }
+
+        .nav-item-li {
+            background-color: transparent !important;
+            cursor: pointer;
+            position: relative;
+            color: white !important;
+            display: inline-block;
+            overflow: hidden; /* Metni kutunun içinde tutmak için ekledik */
+            padding: 0 8px; /* Metnin kenar boşlukları */
+        }
+
+        .nav-item-li::before {
+            content: ''; /* Pseudo-elementi burada boş bırakın */
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 0%;
+            background-color: #FFB70F;
+            border-radius: 5px;
+            transition: width 0.4s;
+            z-index: -1; /* Yeni ekledik, arka planın altında kalması için */
+        }
+
+        .nav-item-li:hover {
+            color: black !important;
+        }
+
+        .nav-item-li:hover::before {
+            width: 100%;
+        }
+
+        .info-title-box{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: start;
+            margin-top: 3vmax;
+            width: 38vw !important;
+            height: 32vh !important;
+            background-color: transparent !important;
+            overflow: hidden; /* Metnin kutunun dışına taşmasına izin veriyoruz */
+            position: relative; /* Pozisyonlandırmak için */
+        }
+
+        .info-title-box div {
+            line-height: 0.7; /* Buradaki değeri düşürerek satır aralığını azaltabilirsiniz */
+        }
+
+        .info-subtitle-box{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: start;
+            width: 38vw !important;
+            height: 10vh !important;
+            background-color: transparent !important;
+            overflow: hidden; /* Metnin kutunun dışına taşmasına izin veriyoruz */
+            position: relative; /* Pozisyonlandırmak için */
+        }
+
+        .letter-animation {
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: scale(1);
+                color: #FFB70F;
+            }
+            50% {
+                transform: scale(1.2);
+                color: #fff;
+            }
+        }
+
+        .content-center{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        #mePicture{
+            position: relative;
+            right: 5vw;
+            top: 10vh;
+            width: 30vw;
+            height: 60vh; /* Resmin yüksekliğini otomatik ayarla */
+            overflow: none;
+            background-image: url("{% static 'image/me.png' %}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            filter: brightness(120%) saturate(100%) contrast(80%) hue-rotate(66deg) grayscale(50%) drop-shadow(5px 0px 10px black);
+        }
+
+        .fade-in {
+            animation: fadeInAnimation 1s ease-in-out forwards;
+        }
+
+        /* Define the keyframes for the fade-in animation */
+        @keyframes fadeInAnimation {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div id="resume" class="">
+
+        <!-- NAVBAR -->
+        {% include 'partials/_nav.html' with pages=pages %}
+        
+        <div id="scroll-menu" data-bs-spy="scroll" data-bs-target="#navbarId" data-bs-root-margin="0px 0px" data-bs-smooth-scroll="true" tabindex="0">
+        
+            <!-- INFO -->
+            {% include 'resume/partials/_info.html' %}
+            
+            <nav style="height: 20vh;"></nav>
+
+            <!-- EDUCATIONS -->
+            {% include 'resume/partials/_educations.html' with user=user activeDoc=activeDoc %}
+            
+            <nav style="height: 20vh;"></nav>
+            
+            <!-- PROJECTS -->
+            {% include 'resume/partials/_projects.html' with user=user activeDoc=activeDoc %}
+            
+            <nav style="height: 20vh;"></nav>
+
+            <!-- CERTIFICATES -->
+            {% include 'resume/partials/_certificates.html' with user=user activeDoc=activeDoc %}
+
+            <nav style="height: 20vh;"></nav>
+            
+            <!-- CONTACT -->
+            {% include 'resume/partials/_contact.html' with user=user activeDoc=activeDoc %}
+
+            <nav style="height: 20vh;"></nav>
+        </div>
+    
+        <!-- FOOTER -->
+        {% include 'partials/_footer.html' %}
+
+    </div>
+
+{% endblock %}
+
+{% block js_files %}
+    <script>
+
+        // Sayfa yüklendiğinde animasyonu tetikleyelim
+        window.onload = function() {
+            const item_in = document.querySelectorAll('.effect-aboutme');
+            item_in.forEach((item, index) => {
+                // Her öğeyi biraz gecikmeli olarak animasyon sınıfını ekleyelim
+                setTimeout(() => {
+                item.classList.add('animate-left');
+                }, 200 * index); // Her öğe arasında 100ms gecikme ekleyelim
+            });
+        };
+
+        const scrollMenu = document.getElementById('scroll-menu');
+        const aboutme = document.getElementById('aboutme');
+        const education = document.getElementById('education');
+        const project = document.getElementById('project');
+        const certificate = document.getElementById('certificate');
+        const contact = document.getElementById('contact');
+        const item_aboutme = document.querySelectorAll('.effect-aboutme');
+        const item_education_big = document.querySelectorAll('.effect-education');
+        const item_project_big = document.querySelectorAll('.effect-project');
+        const item_certificate_big = document.querySelectorAll('.effect-certificate');
+        const item_contact_big = document.querySelectorAll('.effect-contact');
+
+        function AnimationBigEffect() {
+            if ((aboutme.offsetTop >= scrollMenu.scrollTop) && (aboutme.offsetTop <= (scrollMenu.scrollTop + aboutme.offsetHeight))) {
+                item_aboutme.forEach((item, index) => {
+                    // Her öğeyi biraz gecikmeli olarak animasyon sınıfını ekleyelim
+                    setTimeout(() => {
+                        item.classList.add('animate-left');
+                    }, 100 * index); // Her öğe arasında 100ms gecikme ekleyelim
+                });
+            } else {
+                item_aboutme.forEach(item => {
+                    // Eğer "scroll" aralığında değilse, "animate-left" sınıfını kaldıralım
+                    item.classList.remove('animate-left');
+                });
+            }
+
+            if ((education.offsetTop >= scrollMenu.scrollTop) && (education.offsetTop <= (scrollMenu.scrollTop + education.offsetHeight))) {
+                item_education_big.forEach((item, index) => {
+                    // Her öğeyi biraz gecikmeli olarak animasyon sınıfını ekleyelim
+                    setTimeout(() => {
+                        item.classList.add('animate-big');
+                    }, 100 * index); // Her öğe arasında 100ms gecikme ekleyelim
+                });
+            } else {
+                item_education_big.forEach(item => {
+                    // Eğer "scroll" aralığında değilse, "animate-big" sınıfını kaldıralım
+                    item.classList.remove('animate-big');
+                });
+            }
+
+            if ((project.offsetTop >= scrollMenu.scrollTop) && (project.offsetTop <= (scrollMenu.scrollTop + project.offsetHeight))) {
+                item_project_big.forEach((item, index) => {
+                    // Her öğeyi biraz gecikmeli olarak animasyon sınıfını ekleyelim
+                    setTimeout(() => {
+                        item.classList.add('animate-big');
+                    }, 100 * index); // Her öğe arasında 100ms gecikme ekleyelim
+                });
+            } else {
+                item_project_big.forEach(item => {
+                    // Eğer "scroll" aralığında değilse, "animate-big" sınıfını kaldıralım
+                    item.classList.remove('animate-big');
+                });
+            }
+
+            if ((certificate.offsetTop >= scrollMenu.scrollTop) && (certificate.offsetTop <= (scrollMenu.scrollTop + certificate.offsetHeight))) {
+                item_certificate_big.forEach((item, index) => {
+                    // Her öğeyi biraz gecikmeli olarak animasyon sınıfını ekleyelim
+                    setTimeout(() => {
+                        item.classList.add('animate-big');
+                    }, 100 * index); // Her öğe arasında 100ms gecikme ekleyelim
+                });
+            } else {
+                item_certificate_big.forEach(item => {
+                    // Eğer "scroll" aralığında değilse, "animate-big" sınıfını kaldıralım
+                    item.classList.remove('animate-big');
+                });
+            }
+
+            if ((contact.offsetTop >= scrollMenu.scrollTop) && (contact.offsetTop <= (scrollMenu.scrollTop + contact.offsetHeight))) {
+                item_contact_big.forEach((item, index) => {
+                    // Her öğeyi biraz gecikmeli olarak animasyon sınıfını ekleyelim
+                    setTimeout(() => {
+                        item.classList.add('animate-up');
+                    }, 100 * index); // Her öğe arasında 100ms gecikme ekleyelim
+                });
+            } else {
+                item_contact_big.forEach(item => {
+                    // Eğer "scroll" aralığında değilse, "animate-up" sınıfını kaldıralım
+                    item.classList.remove('animate-up');
+                });
+            }
+        }
+        scrollMenu.addEventListener('scroll', AnimationBigEffect);
+
+        const sentences = [
+            "EAT...",
+            "CODE...",
+            "NOT SLEEP...",
+        ];
+
+        const textContainer = document.getElementById('textContainer');
+        let currentSentenceIndex = 0;
+        let currentLetterIndex = 0;
+
+        function typeSentence() {
+            const currentSentence = sentences[currentSentenceIndex];
+            if (currentLetterIndex < currentSentence.length) {
+                textContainer.textContent += currentSentence.charAt(currentLetterIndex);
+                currentLetterIndex++;
+                setTimeout(typeSentence, 100); // Harf geliş hızı (ms)
+            } else {
+                setTimeout(eraseSentence, 2000); // Cümle görüntülenme süresi (ms)
+            }
+        }
+
+        function eraseSentence() {
+            if (textContainer.textContent.length > 0) {
+                textContainer.textContent = textContainer.textContent.slice(0, -1);
+                setTimeout(eraseSentence, 50); // Harf silme hızı (ms)
+            } else {
+                currentLetterIndex = 0;
+                currentSentenceIndex = (currentSentenceIndex + 1) % sentences.length;
+                // textContainer.style.color = getRandomColor(); 
+                setTimeout(typeSentence, 1000); // Yeni cümleye geçiş süresi (ms)
+            }
+        }
+
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        typeSentence(); // Animasyonu başlat
+
+    </script>
+{% endblock %}
+

@@ -1,0 +1,41 @@
+{% extends 'add.html' %}
+{% load static %}
+
+{% block form %}
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <!-- School Name -->
+    <label for="school_name">School Name</label>
+    <input type="text" name="school_name" id="school_name" maxlength="100" placeholder="School Name">
+    <br>
+
+    <!-- Education Type -->
+    <label for="education_type">Education Type</label>
+    <input type="text" name="education_type" id="education_type" maxlength="100" placeholder="Education Type">
+    <br>
+
+    <!-- Start Date -->
+    <label for="start_date">Start Date</label>
+    <input type="date" name="start_date" id="start_date" placeholder="Start Date">
+    <br>
+
+    <!-- End Date -->
+    <label for="end_date">End Date</label>
+    <input type="date" name="end_date" id="end_date" placeholder="End Date">
+    <br>
+
+    <!-- Location -->
+    <label for="location">Location</label>
+    <input type="text" name="location" id="location" maxlength="100" placeholder="Location">
+    <br>
+
+    <!-- Education Image -->
+    <label for="education_image">Education Image</label>
+    <input type="file" name="education_image" id="education_image" placeholder="Education Image">
+    <br>
+
+    <!-- Submit Button -->
+    <input type="submit" value="Submit">
+</form>
+{% endblock %}

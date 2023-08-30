@@ -1,0 +1,54 @@
+{% load static %}
+
+<section class="content m-auto text-white" style="width: 80vw; height: 80vh;" id="project">
+    <div class="row mt-5">
+        <div id="video-project" class="col-sm-4" style="height: 80vh; display: flex; align-items: center; justify-content: center;">
+            <div class="video effect-project" style="width: 35vw; height: 65vh;">
+                <video muted autoplay loop>
+                    <source src="{% static 'video/hello_world.mp4' %}"/>
+                </video>
+            </div>
+        </div>
+        <div id="cards-project" class="col-sm-8 flex-wrap effect-project" style="height: 80vh; overflow-y: auto; display: flex; align-items: center; justify-content: end;">
+            {% for project in projects %}
+                <div class="card m-2 mt-2" style="width: 20vw; height: 35vh; flex: 0 0 auto;" id="project-card">
+                    <div class="m-4 card-head">
+                        <h5 class="card-title card-header">{{ project.project_name }}</h5>
+                        <table class="mt-3">
+                            {% if project.description %}
+                                <tr>
+                                    <td class="float-start fst-italic" style="font-weight: 600;">Description:</td>
+                                    <td class="mx-1"></td>
+                                    <td class="fst-italic ms-3" style="font-size: 11px;">{{ project.description }}</td>
+                                </tr>
+                            {% endif %}
+                        </table>
+                        <table class="card-text">
+                            {% if project.language %}
+                                <tr>
+                                    <td class="float-start fst-italic" style="font-weight: 600;">Language:</td>
+                                    <td class="mx-1"></td>
+                                    <td class="fst-italic m-1" style="font-size: 11px;">{{ project.language }}</td>
+                                </tr>
+                            {% endif %}
+                            {% if project.topics %}
+                                <tr>
+                                    <td class="fst-italic float-start" style="font-weight: 600;">Topics:</td>
+                                    <td class="mx-1"></td>
+                                    <td>
+                                        {% for topic in project.topics %}
+                                            <span class="fst-italic m-1" style="font-size: 11px;">{{ topic }}</span>
+                                        {% endfor %}
+                                    </td>
+                                </tr>
+                            {% endif %}
+                        </table>                        
+                    </div>
+                    <div class="card-body" style="display: flex; align-items: center; justify-content: center;">
+                        <a style="font-weight: 600;" href="{{ project.project_link }}" class="btn btn-warning" target="_blank">Go Project</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

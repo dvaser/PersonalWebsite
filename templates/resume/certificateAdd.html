@@ -1,0 +1,41 @@
+{% extends 'add.html' %}
+{% load static %}
+
+{% block form %}
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <!-- Certificate Name -->
+        <label for="certificate_name">Certificate Name</label>
+        <input type="text" name="certificate_name" id="certificate_name" placeholder="Certificate Name" maxlength="100">
+        <br>
+
+        <!-- Issued By -->
+        <label for="issued_by">Issued By</label>
+        <input type="text" name="issued_by" id="issued_by" placeholder="Issued By" maxlength="100">
+        <br>
+
+        <!-- Acquisition Date -->
+        <label for="acquisition_date">Acquisition Date</label>
+        <input type="date" name="acquisition_date" placeholder="Acquisition Date" id="acquisition_date">
+        <br>
+
+        <!-- Qualification ID -->
+        <label for="qualification_id">Qualification ID</label>
+        <input type="text" name="qualification_id" id="qualification_id" placeholder="Qualification ID" maxlength="50">
+        <br>
+
+        <!-- Certificate PDF -->
+        <label for="certificate_pdf">Certificate PDF</label>
+        <input type="file" name="certificate_pdf" id="certificate_pdf" placeholder="Certificate PDF">
+        <br>
+
+        <!-- Certificate Link -->
+        <label for="certificate_link">Certificate Link</label>
+        <input type="url" name="certificate_link" id="certificate_link" placeholder="Certificate Link">
+        <br>
+
+        <!-- Submit Button -->
+        <input type="submit" value="Submit">
+    </form>
+{% endblock %}

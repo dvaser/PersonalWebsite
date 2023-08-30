@@ -1,0 +1,21 @@
+{% extends 'add.html' %}
+{% load static %}
+
+{% block form %}
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <!-- URL -->
+        <label for="url">URL</label>
+        <input type="url" name="url" id="url" placeholder="URL">
+        <br>
+
+        <!-- Icon -->
+        <label for="icon">Icon</label>
+        <input type="file" name="icon" id="icon" placeholder="Icon">
+        <br>
+
+        <!-- Submit Button -->
+        <input type="submit" value="Submit">
+    </form>
+{% endblock %}

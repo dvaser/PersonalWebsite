@@ -1,0 +1,27 @@
+
+
+<section class="content m-auto row text-white" style="width: 80vw; height: 80vh;" id="education">
+
+    <div id="education-box" class="col effect-education" style="display: flex; align-items: center; justify-content: center; width: 80vw; height: 80vh; overflow-y: auto;">
+        {% for education in educations %}
+            <div class="card m-2 effect-education" style="height: 7rem; display: block; align-items: center;">
+                <div class="card-body row">
+                    <div class="col-2">
+                        <img src="{{ education.education_image }}" alt="school" style="width: 4.5vw; height: 4.5vw;">
+                    </div>
+                    <div class="col-1"></div>
+                    <div class="col">
+                        <h5 class="card-title text-center">{{ education.school_name|title }}</h5>
+                        <div class="card-text mx-4">
+                            <h6 class="float-start fst-italic" style="font-size: small;">{{ education.education_type|title }}</h6>
+                            <p class="float-end fst-italic" style="font-size: small;">{{ education.location }}</p>
+                            <br>
+                            <p class="text-center fst-italic" style="font-size: small;">({{ education.start_date|date:'Y' }} - {{ education.end_date|date:'Y' }})</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+</section>
